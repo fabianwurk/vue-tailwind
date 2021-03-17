@@ -1,0 +1,6 @@
+/* ./src/index.css */
+@tailwind base;
+
+@apply font-family: 'Red Hat Text', sans-serif;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,8 @@
+/* ./src/index.css */
+@tailwind base;
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+}
+@tailwind components;
+@tailwind utilities;
