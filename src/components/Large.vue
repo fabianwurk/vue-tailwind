@@ -20,17 +20,11 @@
 export default {
   data() {
     return {
-      width: null,
+      width: 0,
     };
-  },
-  mounted() {
-  	this.innerWidth()
   },
   created() {
   window.addEventListener("resize", this.resizeWidthEvent);
-  },
-  destroyed() {
-    window.removeEventListener("resize", this.resizeWidthEvent);
   },
   methods: {
     resizeWidthEvent(e) {
