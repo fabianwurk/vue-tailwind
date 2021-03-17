@@ -20,11 +20,11 @@
 export default {
   data() {
     return {
-      width: 0,
+      width: null,
     };
   },
   created() {
-  window.addEventListener("resize", this.resizeWidthEvent);
+    addEventListener("resize", this.resizeWidthEvent);
   },
   methods: {
     resizeWidthEvent(e) {
