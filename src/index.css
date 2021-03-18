@@ -4,5 +4,8 @@
 body {
   font-family: 'Red Hat Text', sans-serif;
 }
+
+[v-cloak] { display: none }
+
 @tailwind components;
 @tailwind utilities;

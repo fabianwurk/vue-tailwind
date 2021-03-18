@@ -1,18 +1,22 @@
 <template>
   <div>
-    <div class="container mx-auto">
-      <h2 class="text-sm font-bold mb-2 mt-8 text-center">
-        <span class="block md:hidden lg:hidden text-center text-blue-600 text-xl">Mobile</span>
-        <span class="hidden md:block lg:hidden text-center text-blue-600 text-xl">Tablet</span>
-        <span class="hidden md:hidden lg:block text-center text-blue-600 text-xl my-3">Desktop</span>
-        1 Col - Padding 16px [Tailwind: p-4]
-      </h2>
+
+    <div class="flex justify-center my-12">
+      <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mx-auto" v-bind:class="selected" v-cloak>
       <div class="flex items-center">
         <div class="w-full bg-blue-100 mb-4 mt-0 py-4 px-4 text-center">
-          <span class="bg-white w-full block" ref="boxWidth">{{width}}px</span>
+          <span class="bg-white w-full block" ref="boxWidth" id="divw">{{width}}px</span>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -20,15 +24,23 @@
 export default {
   data() {
     return {
-      width: null,
+      width: 0,
+      selected: 'Desktop container',
+      options: [
+        { text: 'Desktop', value: 'Desktop container' },
+        { text: 'Tablet', value: 'Tablet max-w-3xl' },
+      ]
     };
+  },
+  mounted() {
+    this.width = document.getElementById("divw").offsetWidth;
   },
   created() {
     addEventListener("resize", this.resizeWidthEvent);
   },
   methods: {
     resizeWidthEvent(e) {
-      this.width = this.$refs.boxWidth.clientWidth;
+      this.width = this.$refs.boxWidth.offsetWidth;
     }
   }
 }
