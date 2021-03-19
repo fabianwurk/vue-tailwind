@@ -1,11 +1,8 @@
 <template>
-  <Large />
-  <!--<Medium />-->
+  <Calc />
 </template>
 
 <script setup>
-import Large from './components/Large.vue';
-// import Medium from './components/Medium.vue';
-
+import Calc from './components/Calc.vue';
 </script>
 
